@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+<h:head>
+	<h:outputScript library="js" name="common.js" />
+</h:head>
+<h:body onload="hideFieldsOnNewCustomer()">
+   <h:form id="newCustomerformId">
+       <h:panelGrid id="panelId" columns="2" border="1" cellpadding="10" cellspacing="1">
+                                
+               <h:outputLabel for="kundeTypId" value="Kunde Typ:" />
+               <h:selectOneMenu id="kundeTypId"  onchange="enableFieldsOnNewCustomer()"  immediate="true" value="#{newCustomerBean.custmerType}" style="width:150px">
+                     <f:selectItem itemLabel="Kunde auswählen" itemValue="" noSelectionOption="true" />
+                  	 <f:selectItems value="#{newCustomerBean.custmerTypes}"/>
+               </h:selectOneMenu>
+               <h:outputLabel id="vornameLabelId" for="vornameId"
+                                    value='Name'/>         
+               <h:inputText id="vornameId" value="#{newCustomerBean.vorname}"
+                                    maxlength="25" size="20" />
+               <h:outputLabel id="nachnameLabelId" for="nachnameId"
+                                    value="Nachname"/>
+              <h:inputText id="nachnameId" value="#{newCustomerBean.nachname}"
+                  maxlength="25" size="20" />
+              <h:outputLabel id="addresseLabelId" for="addresseId"
+                  value="Addresse" />
+              <h:inputText id="addresseId" value="#{newCustomerBean.addresse}"
+                  maxlength="25" size="20" />
+              <h:outputLabel id="steuerNummerLabelId" for="steuerNummerId"
+                  value="Steuer Nummer"/>
+              <h:inputText id="steuerNummerId"
+                  value="#{newCustomerBean.steuerNummer}">
+                  <f:validateRegex pattern="\d*(.\d+)?" />
+              </h:inputText>
+              <h:outputLabel id="gebDatumLabelId" for="gebDatumId"
+                  value="Geburtsdatum"/>
+               <h:inputText  id="gebDatumInputId" value="#{newCustomerBean.gebDatum}"
+                  			 maxlength="25" size="20">
+   					 <f:convertDateTime pattern="yyyy-MMM-dd" />
+			  </h:inputText>   
+                  
+              <h:commandButton id="createCustomerId" type="submit" value="Create Customer"
+                                action="#{newCustomerBean.saveNewCustomer}"/>
+            </h:panelGrid>
+        </h:form>
+</h:body>
+</html>
