@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.ExternalContext;
 
 /**
  * HTML5 Support in JSF 2.2, (for example: make <h:inputText> accept only digits (pure HTML))
@@ -20,6 +21,7 @@ import javax.faces.bean.ManagedBean;
 public class ContactBean {
 	
 	private String strasse;
+	private String email;
 	private short hausNummer;
 	private String ort;
 	private int plz;
@@ -30,7 +32,7 @@ public class ContactBean {
 	public ContactBean() {
 		plzOrtMap.put(1010, "Wien,Innere Stadt");
 		plzOrtMap.put(1020, "Wien,Leopoldstadt");
-		plzOrtMap.put(1030, "Wien,Landstraße");
+		plzOrtMap.put(1030, "Wien,Landstraï¿½e");
 		plzOrtMap.put(1040, "Wien,Wieden");
 		plzOrtMap.put(1050, "Wien,Margareten");
 		plzOrtMap.put(1060, "Wien,Mariahilf");
@@ -38,6 +40,15 @@ public class ContactBean {
 		plzOrtMap.put(1080, "Wien,Josefstadt");
 	}
 	
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getStrasse() {
 		return strasse;
 	}
@@ -67,7 +78,7 @@ public class ContactBean {
 	}
 	
 	public String goToNextView() {
-		return null;
+		return "contactrequest-recieved";
 	}
 	
 }

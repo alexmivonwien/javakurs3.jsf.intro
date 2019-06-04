@@ -10,10 +10,24 @@
 	<title>Contact Form</title>
 </h:head>
 
+<!--  * HTML5 Support in JSF 2.2, (for example: make <h:inputText> accept only digits (pure HTML))
+ *  
+ * @see http://hantsy.blogspot.com/2013/08/jsf-22-html5-support.html
+  --> 
+
 <h:body>
-	<h2>Contact Form - ajax call</h2>
+	<h2>Contact Request - ajax call</h2>
 	<h:form>
 		<table>
+		<tr>
+			<td>
+				Ihre E-Mail:
+			</td>
+			<td>
+				<h:inputText value="#{contactBean.email}" id="emailId" p:type="email"/>  <!--  JSF 2.2 supports HTML5 through the additional attributes p:..., where p denotes the namespace xmlns:p="http://xmlns.jcp.org/jsf/passthrough" -->
+			</td>
+		</tr>
+		
 		<tr>
 			<td>
 				Strasse:
@@ -27,7 +41,7 @@
 				Haus Nummer:
 			</td>
 			<td>
-				<h:inputText value="#{contactBean.hausNummer}"  p:type="number"></h:inputText>
+				<h:inputText value="#{contactBean.hausNummer}"  p:type="number"></h:inputText> <!--  JSF 2.2 supports HTML5 through the additional attributes p:..., where p denotes the namespace xmlns:p="http://xmlns.jcp.org/jsf/passthrough" -->
 			</td>
 		</tr>
 		<tr>
@@ -36,7 +50,7 @@
 			</td>
 			<td>
 				<h:inputText value="#{contactBean.plz}" id="plzId">
-					<f:ajax event="blur" render="ortId" execute="@this"/>
+					<f:ajax event="blur" render="ortId" execute="@this"/> <!--  ajax support in JSF2 through f:ajax: on HTML event blur wird der Wert von plz durch ajax Request an das Contact Bean geschickt; Via ajax Response wird dann der Wert von contactBean.ort zurück an das Web_Page übergeben und dort ersetzt. -->
 				</h:inputText>
 			</td>
 		</tr>
