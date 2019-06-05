@@ -7,6 +7,8 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.event.ActionEvent;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 
 
@@ -16,9 +18,10 @@ import javax.faces.event.ActionEvent;
  *
  */
 
-@javax.faces.bean.ManagedBean
-@javax.faces.bean.ViewScoped
-
+//@javax.faces.bean.ManagedBean
+//@javax.faces.bean.ViewScoped
+@Named
+@ViewScoped
 public class NewCustomerBean implements Serializable {
 
     private static final long serialVersionUID = 1L;

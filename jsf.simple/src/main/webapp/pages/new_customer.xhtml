@@ -35,9 +35,9 @@
               </h:inputText>
               <h:outputLabel id="gebDatumLabelId" for="gebDatumId"
                   value="Geburtsdatum"/>
-               <h:inputText  id="gebDatumInputId" value="#{newCustomerBean.gebDatum}"
+               <h:inputText id="gebDatumId" value="#{newCustomerBean.gebDatum}"
                   			 maxlength="25" size="20">
-   					 <f:convertDateTime pattern="yyyy-MMM-dd" />
+   					 <f:convertDateTime pattern="yyyy-mm-dd" />
 			  </h:inputText>   
                   
               <h:commandButton id="createCustomerId" type="submit" value="Create Customer"
