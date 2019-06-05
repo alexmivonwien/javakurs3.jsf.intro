@@ -48,11 +48,11 @@
               <h:outputLabel id="gebDatumLabelId" for="gebDatumId"
                   value="Geburtsdatum"
                   rendered="#{newCustomerBean.custmerType eq 'TYP_NATPERS'}" />
-               <h:outputText id="gebDatumId" value="#{newCustomerBean.gebDatum}" 
+                <h:inputText id="gebDatumId" value="#{newCustomerBean.gebDatum}" 
                				 rendered ="#{newCustomerBean.custmerType eq 'TYP_NATPERS'}"
                   			 maxlength="25" size="20">
    					 <f:convertDateTime pattern="yyyy-MMM-dd" />
-				</h:outputText>   
+				</h:inputText>  
                   
               <h:commandButton type="submit" value="Create Customer"
                                 action="#{newCustomerBean.saveNewCustomer}"/>
