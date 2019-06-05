@@ -5,8 +5,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-import javax.faces.event.ActionEvent;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 
 
@@ -15,10 +17,10 @@ import javax.faces.event.ActionEvent;
  * @author Alex-Mi
  *
  */
-
-@javax.faces.bean.ManagedBean
-@javax.faces.bean.ViewScoped
-
+@Named
+@ViewScoped
+// TEST: was passeirt wenn wir ViewScoped durch RequestScoped ersetzen?
+//@RequestScoped  
 public class NewCustomerBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
